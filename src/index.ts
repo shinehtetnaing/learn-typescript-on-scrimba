@@ -5,8 +5,8 @@ const menu = [
   { name: "Veggie", price: 9 },
 ];
 
-const cashInRegister = 100;
-const nextOrderId = 1;
+let cashInRegister = 100;
+let nextOrderId = 1;
 const orderQueue = [];
 
 /**
@@ -28,6 +28,10 @@ const addNewPizza = (pizza) => {
 
 const placeOrder = (pizzaName) => {
   const selectedPizza = menu.find((pizza) => pizza.name === pizzaName);
+  if (!selectedPizza) {
+    console.error(`${pizzaName} does not exist in the menu.`);
+    return;
+  }
   cashInRegister += selectedPizza.price;
   const newOrder = {
     id: nextOrderId++,
@@ -45,7 +49,7 @@ const placeOrder = (pizzaName) => {
  *
  * Note: you'll need to ensure that we're adding IDs to our orders when we create new orders. You can use a global `nextOrderId` variable and increment it every time a new order is created to simulate real IDs being managed for us by a database.
  */
-const completeOrder = (orderId) => {
+const completeOrder = (orderId: number) => {
   const order = orderQueue.find((order) => order.id === orderId);
   order.status = "completed";
   return order;
@@ -55,7 +59,7 @@ addNewPizza({ name: "BBQ Chicken", price: 11 });
 addNewPizza({ name: "Chicken Bacon Ranch", price: 12 });
 
 placeOrder("Chicken Bacon Ranch");
-completeOrder("1");
+completeOrder(1);
 
 console.log("Menu:", menu);
 console.log("Cash in register:", cashInRegister);
