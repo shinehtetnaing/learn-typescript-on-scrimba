@@ -1,0 +1,24 @@
+{
+  "name": "learn-typescript-on-scrimba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinehtetnaing/learn-typescript-on-scrimba.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/shinehtetnaing/learn-typescript-on-scrimba/issues"
+  },
+  "homepage": "https://github.com/shinehtetnaing/learn-typescript-on-scrimba#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
