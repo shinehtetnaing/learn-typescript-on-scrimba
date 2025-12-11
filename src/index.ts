@@ -36,7 +36,7 @@ const orderQueue: Order[] = [];
  * Then like before, look through the code to see if there are any new
  * TS warnings to deal with (😉), and fix those issues
  */
-const addNewPizza = (pizza: Pizza) => {
+const addNewPizza = (pizza: Pizza): void => {
   menu.push(pizza);
 };
 
@@ -49,7 +49,7 @@ const addNewPizza = (pizza: Pizza) => {
  * 4. returns the new order object (just in case we need it later)
  */
 
-const placeOrder = (pizzaName: string) => {
+const placeOrder = (pizzaName: string): Order | undefined => {
   const selectedPizza = menu.find((pizza) => pizza.name === pizzaName);
   if (!selectedPizza) {
     console.error(`${pizzaName} does not exist in the menu.`);
@@ -72,7 +72,7 @@ const placeOrder = (pizzaName: string) => {
  *
  * Note: you'll need to ensure that we're adding IDs to our orders when we create new orders. You can use a global `nextOrderId` variable and increment it every time a new order is created to simulate real IDs being managed for us by a database.
  */
-const completeOrder = (orderId: number) => {
+const completeOrder = (orderId: number): Order | undefined => {
   const order = orderQueue.find((order) => order.id === orderId);
   if (!order) {
     console.error(`${orderId} was not found in the orderQueue`);
@@ -92,7 +92,7 @@ const completeOrder = (orderId: number) => {
  * signature, making sure to teach TS that the `identifier` parameter is allowed
  * to either be a string or a number.
  */
-const getPizzaDetail = (identifier: string | number) => {
+const getPizzaDetail = (identifier: string | number): Pizza | undefined => {
   /**
    * Challenge: write the code to check if the parameter is a string
    * or a number, and use the menu.find() method accordingly
